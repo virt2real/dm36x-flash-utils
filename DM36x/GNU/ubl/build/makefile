@@ -34,6 +34,10 @@ ifeq ($(TYPE),sdmmc)
 	CFLAGS+= -DUBL_SDMMC
   SOURCES+= sdmmc.c sdmmcboot.c
 endif
+ifeq ($(TYPE),dm368sdmmc)
+	CFLAGS+= -DUBL_SDMMC -DARM432_DDR340_OSC24
+  SOURCES+= sdmmc.c sdmmcboot.c
+endif
 
 OBJECTS:=$(patsubst %.c,%_$(TYPE).o,$(SOURCES))
 EXECUTABLE:=$(PROGRAM)_$(DEVSTRING)_$(TYPE)
