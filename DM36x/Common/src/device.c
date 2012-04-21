@@ -676,6 +676,7 @@ Uint32 DEVICE_PLL2Init()
 
 Uint32 DDR_Get_Val(Uint32 parm, Uint32 freq)
 {
+#if 0
 	Uint32 result;
 
 	
@@ -689,6 +690,20 @@ Uint32 DDR_Get_Val(Uint32 parm, Uint32 freq)
            result++;
 
 	return result;
+#else
+    Uint32 result;
+    unsigned long long temp;
+
+    // Implement the logic above, but without divide and mod
+    // so that those functions don't need to be linked in.
+    // See http://www.hackersdelight.org/magic.htm
+    result = (parm * freq) + 9999;
+    temp = (unsigned long long) result * 3518437209UL;
+    result = (Uint32) (temp >> (32 + 13));
+    result -= 1;
+
+    return result;
+#endif
 }
 
 Uint32 DEVICE_DDR2Init()
