@@ -338,7 +338,7 @@ Uint32 DEVICE_init()
   
   DEVICE_pinmuxControl(0,0xFFFFFFFF,0x00FD0000);  // All Video Inputs
   DEVICE_pinmuxControl(1,0xFFFFFFFF,0x00145555);  // All Video Outputs
-  DEVICE_pinmuxControl(2,0xFFFFFFFF,0x000000DA);  // EMIFA
+  DEVICE_pinmuxControl(2,0xFFFFFFFF,0x00000080);  // GIOs
   DEVICE_pinmuxControl(3,0xFFFFFFFF,0x00180000);  // SPI0, SPI1, UART1, I2C, SD0, SD1, McBSP0, CLKOUTs
   DEVICE_pinmuxControl(4,0xFFFFFFFF,0x55555555);  // MMC/SD0 instead of MS, SPI0
 
