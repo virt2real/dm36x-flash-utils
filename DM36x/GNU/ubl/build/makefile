@@ -18,7 +18,7 @@ OBJCOPY=$(CROSSCOMPILE)objcopy
 OBJDUMP=$(CROSSCOMPILE)objdump
 LDFLAGS=-Wl,-T$(LINKERSCRIPT) -nostdlib 
 OBJCOPYFLAGS = --gap-fill 0xFF -S
-SOURCES=$(PROGRAM).c boot.c selfcopy.c uartboot.c device.c debug.c uart.c util.c
+SOURCES=$(PROGRAM).c boot.c selfcopy.c device.c debug.c uart.c util.c # uartboot.c 
 ENTRYPOINT=boot
 
 CFLAGS:=-c -Os -Wall -ffreestanding -I../../../Common/include -I../../../../Common/include -I../../../../Common/arch/arm926ejs/include -I../../../../Common/$(PROGRAM)/include -I../../../../Common/drivers/include -I../../../../Common/gnu/include 
