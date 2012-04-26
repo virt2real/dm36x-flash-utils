@@ -35,7 +35,7 @@ ifeq ($(TYPE),sdmmc)
   SOURCES+= sdmmc.c sdmmcboot.c
 endif
 ifeq ($(TYPE),dm368sdmmc)
-	CFLAGS+= -DUBL_SDMMC -DARM432_DDR340_OSC24
+	CFLAGS+= -DUBL_SDMMC -DUBL_SD_MMC -DARM432_DDR340_OSC24
   SOURCES+= sdmmc.c sdmmcboot.c
 endif
 
