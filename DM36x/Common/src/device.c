@@ -368,6 +368,9 @@ Uint32 DEVICE_init()
 
   WDT_FLAG_ON();
 
+  // FAH: Enable CLKOUT0 to drive the imager
+  PLL1->CKEN = 3;
+
   return status;
 }
 
