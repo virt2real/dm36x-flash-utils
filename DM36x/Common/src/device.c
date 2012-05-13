@@ -336,11 +336,11 @@ Uint32 DEVICE_init()
    // System PSC setup - enable all
   DEVICE_PSCInit();
   
-  DEVICE_pinmuxControl(0,0xFFFFFFFF,0x00FD0000);  // All Video Inputs
-  DEVICE_pinmuxControl(1,0xFFFFFFFF,0x00145555);  // All Video Outputs
-  DEVICE_pinmuxControl(2,0xFFFFFFFF,0x00000080);  // GIOs
-  DEVICE_pinmuxControl(3,0xFFFFFFFF,0x00180000);  // SPI0, SPI1, UART1, I2C, SD0, SD1, McBSP0, CLKOUTs
-  DEVICE_pinmuxControl(4,0xFFFFFFFF,0x55555555);  // MMC/SD0 instead of MS, SPI0
+  DEVICE_pinmuxControl(0,0xFFFFFFFF,0x00FC4F55);
+  DEVICE_pinmuxControl(1,0xFFFFFFFF,0x00165555);
+  DEVICE_pinmuxControl(2,0xFFFFFFFF,0x00000080);
+  DEVICE_pinmuxControl(3,0xFFFFFFFF,0x015affff);
+  DEVICE_pinmuxControl(4,0xFFFFFFFF,0x00300000);
 
 	GPIO->DIR02 &= 0xfeffffff;
 	GPIO->CLRDATA02 = 0x01000000;
