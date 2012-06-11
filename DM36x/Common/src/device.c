@@ -50,7 +50,7 @@ extern __FAR__ VUint32* DDRStart;
 * Global Variable Definitions                               *
 ************************************************************/
 
-const String devString = "DM36x";
+String devString = "DM36x";
 #define GPINT_GPEN		(unsigned int *)(0x01C21C08)		// WDT special function
 #define GPTDAT_GPDIR	(unsigned int *)(0x01C21C0c)		// WDT special function
 #define TMPBUF          (unsigned int *)(0x17ff8)

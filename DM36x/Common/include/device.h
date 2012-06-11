@@ -24,7 +24,7 @@ extern far "c" {
 * Global Variable Declarations                              *
 ************************************************************/
 
-extern const String devString;
+extern String devString;
 
 
 /******************************************************
@@ -111,29 +111,36 @@ DEVICE_SysModuleRegs;
 typedef struct _DEVICE_GPIO_REGS_
 {
   VUint32 PID;         //0x00
-  VUint32 RSVD1;           //0x4
-  VUint32 BINTEN;        //0x8
+  VUint32 RSVD1;       //0x4
+  VUint32 BINTEN;      //0x8
   VUint32 RSVD2;       //0xC
-  VUint32 DIR01;          //0x10
-  VUint32 OUTDATA01;            //0x14
-  VUint32 SETDATA01;         //0x18
-  VUint32 CLRDATA01;       //0x1C
-  VUint32 INDTATA01;       //0x20
-  VUint32 SETRIS01;        //0x24
-  VUint32 CLRRIS01;              //0x28
-  VUint32 SETFAL01;         //0x2C
-  VUint32 CLRFAL01;       //0x30
-  VUint32 INTSTAT01;      //0x34
-  VUint32 DIR02;          //0x10
-  VUint32 OUTDATA02;            //0x14
-  VUint32 SETDATA02;         //0x18
-  VUint32 CLRDATA02;       //0x1C
-  VUint32 INDTATA02;       //0x20
-  VUint32 SETRIS02;        //0x24
-  VUint32 CLRRIS02;              //0x28
-  VUint32 SETFAL02;         //0x2C
-  VUint32 CLRFAL02;       //0x30
-  VUint32 INTSTAT02;      //0x34
+  VUint32 DIR01;       //0x10
+  VUint32 OUTDATA01;   //0x14
+  VUint32 SETDATA01;   //0x18
+  VUint32 CLRDATA01;   //0x1C
+  VUint32 INDATA01;    //0x20
+  VUint32 SETRIS01;    //0x24
+  VUint32 CLRRIS01;    //0x28
+  VUint32 SETFAL01;    //0x2C
+  VUint32 CLRFAL01;    //0x30
+  VUint32 INTSTAT01;   //0x34
+  VUint32 DIR23;       //0x38
+  VUint32 OUTDATA23;   //0x3C
+  VUint32 SETDATA23;   //0x40
+  VUint32 CLRDATA23;   //0x44
+  VUint32 INDATA23;    //0x48
+  VUint32 RSVD3[5];
+  VUint32 DIR45;       //0x60
+  VUint32 OUTDATA45;   //0x64
+  VUint32 SETDATA45;   //0x68
+  VUint32 CLRDATA45;   //0x6C
+  VUint32 INDATA45;    //0x70
+  VUint32 RSVD4[6];
+  VUint32 DIR6;        //0x60
+  VUint32 OUTDATA6;    //0x64
+  VUint32 SETDATA6;    //0x68
+  VUint32 CLRDATA6;    //0x6C
+  VUint32 INDATA6;     //0x70 
 }
 DEVICE_GPIORegs;
 
@@ -598,6 +605,28 @@ DEVICE_SDMMCRegs;
 #define DEVICE_SDMMC_MMCFIFOCTL_FIFORST_SHIFT (0x0000u)
 #define DEVICE_SDMMC_MMCFIFOCTL_FIFORST_RESETVAL (0x0000u)
 
+// PRTCIF Register structure - See sprufj0a.pdf for more details.
+typedef struct _DEVICE_PRTCIF_REGS_
+{
+    VUint32 PID;       // 0x00
+    VUint32 CTRL;      // 0x04
+    VUint32 LDATA;     // 0x08
+    VUint32 UDATA;     // 0x0c
+    VUint32 INTEN;     // 0x10
+    VUint32 INTFLG;    // 0x14
+}
+DEVICE_PRTCIFRegs;
+
+#define PRTCIF ((DEVICE_PRTCIFRegs*) 0x01C69000)
+
+#define PRTCIF_CTRL_BUSY	(0x80000000)
+#define PRTCIF_CTRL_SIZE_4BYTES	(0x00000000)
+#define PRTCIF_CTRL_SIZE_8BYTES	(0x02000000)
+#define PRTCIF_CTRL_DIR_WRITE	(0x00000000)
+#define PRTCIF_CTRL_DIR_READ	(0x01000000)
+#define PRTCIF_CTRL_BENU_SHIFT	(20)
+#define PRTCIF_CTRL_BENL_SHIFT	(16)
+#define PRTCIF_CTRL_ADRS_SHIFT	(0)
 
 /***********************************************************
 * Global Function Declarations                             *
