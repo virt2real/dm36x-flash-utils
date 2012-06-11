@@ -342,8 +342,8 @@ Uint32 DEVICE_init()
   DEVICE_pinmuxControl(3,0xFFFFFFFF,0x015affff);
   DEVICE_pinmuxControl(4,0xFFFFFFFF,0x00300000);
 
-	GPIO->DIR02 &= 0xfeffffff;
-	GPIO->CLRDATA02 = 0x01000000;
+	GPIO->DIR23 &= 0xfeffffff;
+	GPIO->CLRDATA23 = 0x01000000;
 
  
   if (status == E_PASS) status |= DEVICE_PLL1Init();
