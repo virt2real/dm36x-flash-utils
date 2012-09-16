@@ -1,10 +1,10 @@
 all:
-		$(MAKE) -C build TYPE=nand
-		$(MAKE) -C build TYPE=nor
+		$(MAKE) -C build TYPE=dm365sdmmc
+		$(MAKE) -C build TYPE=dm368sdmmc
 clean:
-		$(MAKE) -C build TYPE=nand clean
-		$(MAKE) -C build TYPE=nor clean
+		$(MAKE) -C build TYPE=dm365sdmmc clean
+		$(MAKE) -C build TYPE=dm368sdmmc clean
 %::
-		$(MAKE) -C build TYPE=nand $@
-		$(MAKE) -C build TYPE=nor $@
+		$(MAKE) -C build TYPE=dm365sdmmc $@
+		$(MAKE) -C build TYPE=dm368sdmmc $@
 		

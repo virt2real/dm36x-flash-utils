@@ -21,7 +21,9 @@ OBJCOPYFLAGS = --gap-fill 0xFF -S
 SOURCES=$(PROGRAM).c boot.c selfcopy.c device.c debug.c uart.c util.c # uartboot.c 
 ENTRYPOINT=boot
 
-CFLAGS:=-c -Os -Wall -ffreestanding -I../../../Common/include -I../../../../Common/include -I../../../../Common/arch/arm926ejs/include -I../../../../Common/$(PROGRAM)/include -I../../../../Common/drivers/include -I../../../../Common/gnu/include
+GITDESCRIBE=`git describe`
+
+CFLAGS:=-c -Os -Wall -ffreestanding -I../../../Common/include -I../../../../Common/include -I../../../../Common/arch/arm926ejs/include -I../../../../Common/$(PROGRAM)/include -I../../../../Common/drivers/include -I../../../../Common/gnu/include -DGITDESCRIBE=$(GITDESCRIBE)
 ifeq ($(TYPE),nand)
 	CFLAGS+= -DUBL_NAND
   SOURCES+= nand.c nandboot.c device_nand.c
@@ -32,6 +34,10 @@ ifeq ($(TYPE),nor)
 endif
 ifeq ($(TYPE),sdmmc)
 	CFLAGS+= -DUBL_SDMMC -DUBL_SD_MMC
+  SOURCES+= sdmmc.c sdmmcboot.c
+endif
+ifeq ($(TYPE),dm365sdmmc)
+	CFLAGS+= -DUBL_SDMMC -DUBL_SD_MMC -DARM297_DDR270_OSC24
   SOURCES+= sdmmc.c sdmmcboot.c
 endif
 ifeq ($(TYPE),dm368sdmmc)

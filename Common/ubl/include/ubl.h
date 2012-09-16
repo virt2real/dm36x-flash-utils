@@ -20,7 +20,10 @@ extern far "c" {
 ***********************************************************/
 
 // UBL version number
-#define UBL_VERSION_STRING  ("1.50")
+//#define UBL_VERSION_STRING  ("1.50")
+#define XSTRINGIFY(s) STRINGIFY(s)
+#define STRINGIFY(s) #s
+#define UBL_VERSION_STRING XSTRINGIFY(GITDESCRIBE)
 
 // Define MagicNumber constants
 #ifdef DM35X_STANDARD
