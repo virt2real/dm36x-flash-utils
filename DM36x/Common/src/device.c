@@ -336,7 +336,7 @@ Uint32 DEVICE_init()
    // System PSC setup - enable all
   DEVICE_PSCInit();
   
-  DEVICE_pinmuxControl(0,0xFFFFFFFF,0x00FC4F55);
+  DEVICE_pinmuxControl(0,0xFFFFFFFF,0x00FC4000);
   DEVICE_pinmuxControl(1,0xFFFFFFFF,0x00165555);
   DEVICE_pinmuxControl(2,0xFFFFFFFF,0x00000080);
   DEVICE_pinmuxControl(3,0xFFFFFFFF,0x015affff);
